@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TweetList from './components/TweetList';
 import CreateTweet from './components/CreateTweet';
 
 function App() {
-  const name = 'Claudio';
-  const message = 'I went to sleep today';
+  const [name, setName] = useState('Dev Ed');
+  const message = 'Hello';
   return (
     <div>
-      <div className="text">
-        <h1>Hello</h1>
+      <div>
         <CreateTweet />
-        <TweetList name={name} message={message} />
+        <TweetList setName={setName} name={name} message={message} />
       </div>
     </div>
   );
