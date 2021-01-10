@@ -3,35 +3,19 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
+import allReducers from './reducer';
+import { Provider } from 'react-redux';
 
-//STORE -> GLOBALIZED STATE
-
-//ACTION
-const increment = () => {
-  return {
-    type: 'INCREMENT',
-  };
-};
-
-//REDUCER
-const counter = (state = 0, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-  }
-};
-
-let store = createStore(counterReducer);
-
-// THIS IS NOT HOW WE ARE GONNA DO IT IN REACT BUT WHATEVER
-store.subscribe(() => console.log(store.getState()));
-store.dispatch(increment());
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
