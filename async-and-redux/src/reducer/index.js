@@ -1,8 +1,8 @@
 import counterReducer from '../reducer/counter';
 import loggedReducer from '../reducer/isLogged';
-import { combineReducer, combineReducers } from 'redux';
+import { combinedReducers } from 'redux';
 
-const allReducers = combineReducers({
+const allReducers = combinedReducers({
   counter: counterReducer,
   isLogged: loggedReducer,
 });
