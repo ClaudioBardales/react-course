@@ -6,7 +6,7 @@ const initState = {
   isLogged: false,
 };
 
-const userReducer = (state, action) => {
+const userReducer = (state = initState, action) => {
   switch (action.type) {
     default:
       return { ...state };
