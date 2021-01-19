@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { smallImage } from '../util';
 
-const GameDetail = () => {
+const GameDetail = ({ pathId }) => {
   const history = useHistory();
   const exitDetailHandler = (e) => {
     const element = e.target;
@@ -14,9 +14,7 @@ const GameDetail = () => {
       history.push('/');
     }
   };
-  const { screen, game, isLoading, pathId } = useSelector(
-    (state) => state.detail
-  );
+  const { screen, game, isLoading } = useSelector((state) => state.detail);
   return (
     <>
       {!isLoading && (
